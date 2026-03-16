@@ -1,0 +1,27 @@
+name: Pipeline CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+
+  validar-codigo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código do repositório
+        uses: actions/checkout@v4
+
+      - name: Validar projeto
+        run: echo "Código validado com sucesso!"
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código do repositório
+        uses: actions/checkout@v4
+
+      - name: Simular build
+        run: echo "Build executado com sucesso!"
