@@ -26,3 +26,11 @@ jobs:
 
       - name: Simular build
         run: echo "Build executado com sucesso!"
+
+  segredo:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Mostrar segredo
+        run: echo "Mensagem secreta: ${{ secrets.MENSAGEM_SECRETA }}"
