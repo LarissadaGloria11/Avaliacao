@@ -2,7 +2,8 @@ name: Pipeline CI
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
 
@@ -10,22 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Baixar código
+      - name: Baixar codigo
         uses: actions/checkout@v4
 
       - name: Validar projeto
-        run: echo "Código validado com sucesso!"
+        run: echo "Codigo validado com sucesso"
 
   build:
     runs-on: ubuntu-latest
     needs: validar-codigo
 
     steps:
-      - name: Baixar código
+      - name: Baixar codigo
         uses: actions/checkout@v4
 
       - name: Simular build
-        run: echo "Build executado com sucesso!"
+        run: echo "Build executado com sucesso"
 
   segredo:
     runs-on: ubuntu-latest
