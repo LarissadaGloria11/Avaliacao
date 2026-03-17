@@ -12,12 +12,8 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v3
 
-      - name: Verificar HTML (simples)
-        run: |
-          echo "Verificando HTML..."
-          if grep -q "<html" index.html; then
-            echo "HTML OK"
-          else
-            echo "Erro no HTML"
-            exit 1
-          fi
+      - name: Instalar HTMLHint
+        run: npm install -g htmlhint
+
+      - name: Rodar Linter HTML
+        run: htmlhint index.html
